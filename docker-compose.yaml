@@ -8,6 +8,8 @@ services:
     restart: unless-stopped
     networks:
       - perplexica_network
+    ports:
+      - "8080:8080"  # Added port mapping for SearxNG
 
   perplexica-backend:
     build:
@@ -27,6 +29,8 @@ services:
       - perplexica_network
     environment:
       - PORT=3001
+    ports:
+      - "3001:3001"  # Explicitly map backend port
 
   perplexica-frontend:
     build:
@@ -40,6 +44,10 @@ services:
     restart: unless-stopped
     networks:
       - perplexica_network
+    ports:
+      - "3000:3000"  # Map frontend port
+    environment:
+      - PORT=3000  # Explicitly set frontend port
 
 networks:
   perplexica_network:
