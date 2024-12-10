@@ -5,7 +5,7 @@ services:
       - ./searxng:/etc/searxng:rw
     restart: unless-stopped
 
-  perplexica-backend:
+perplexica-backend:
     build:
       context: .
       dockerfile: backend.dockerfile
@@ -15,10 +15,6 @@ services:
       - searxng
     volumes:
       - backend-dbstore:/home/perplexica/data
-      -
-        type: bind
-        source: ./config.toml
-        target: /home/perplexica/config.toml
     extra_hosts:
       - 'host.docker.internal:host-gateway'
     restart: unless-stopped
