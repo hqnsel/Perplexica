@@ -18,10 +18,6 @@ services:
     volumes:
       - backend-dbstore:/home/perplexica/data
       - uploads:/home/perplexica/uploads
-      - type: bind
-        source: ./config.toml
-        target: /home/perplexica/config.toml
-        read_only: true
     networks:
       - perplexica-network
     restart: unless-stopped
