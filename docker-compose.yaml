@@ -7,7 +7,7 @@ services:
       - perplexica-network
     restart: unless-stopped
 
-perplexica-backend:
+  perplexica-backend:
     build:
       context: .
       dockerfile: backend.dockerfile
